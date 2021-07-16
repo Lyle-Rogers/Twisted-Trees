@@ -1,8 +1,9 @@
 'use strict'
 
 const Helpers = use('Helpers')
-const fs = require('fs');
+// const fs = require('fs');
 const SellListing = use('App/Models/SellListing')
+const Image = use('App/Models/Image')
 
 class ForSaleController {
   async render({ view, auth }) {
@@ -24,26 +25,41 @@ class ForSaleController {
       size: '13mb'
     })
 
-    // const sellListing = await SellListing.find(makeSellListing.id)
-    const name = `${new Date().getTime()}.${photo.subtype}`;
+    if (photo) {
+      const name = `${new Date().getTime()}.${photo.subtype}`;
 
-    await photo.move(Helpers.publicPath('uploads'), {
-      name: name,
-      overwrite: true
-    })
+      await photo.move(Helpers.publicPath('uploads'), {
+        name: name,
+        overwrite: true
+      })
 
-    if (!photo.moved()) {
-      return response.redirect('/the_china')
+      if (!photo.moved()) {
+        return response.redirect('/the_china')
+      }
+
+      const makeSellListing = await SellListing.create({
+        photo: name,
+        title: sellListingInfo.title,
+        price: sellListingInfo.price,
+        description: sellListingInfo.description,
+      })
+
+      await makeSellListing.photos().create({
+        image: name,
+      })
+    } else {
+      await SellListing.create({
+        title: sellListingInfo.title,
+        price: sellListingInfo.price,
+        description: sellListingInfo.description,
+      })
     }
 
-    const makeSellListing = await SellListing.create({
-      photo: name,
-      title: sellListingInfo.title,
-      price: sellListingInfo.price,
-      description: sellListingInfo.description,
-    })
-
-    let goat = "fuck Me."
+    // const sellListing = await SellListing.find(makeSellListing.id)
+    
+    // const createPhoto = await sellListing.photos().create({
+    //   image: name,
+    // })
 
     // const removeFile = Helpers.promisify(fs.unlink)
     
