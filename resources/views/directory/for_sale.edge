@@ -1,0 +1,29 @@
+@layout('main')
+
+@section('extracss')
+  {{ style('pages/register') }}
+@endsection
+
+@section('content')
+  <div class="forSaleContent">
+    @if(admin == true)
+      <a href="/make_sell_listing">+</a>
+    @endif
+    @each(sellListing in sellListings)
+      <div class="sellListing">
+        <div class="photoDisplay">
+          {{--  <img src="{{ assetsUrl('uploads/' + sellListing.photo) }}" alt="The img" />  --}}
+          <img src="{{ assetsUrl('uploads/' + sellListing.photo) }}" alt="The img" />
+        </div>
+        <div class="title">
+          {{ sellListing.title }}
+        </div>
+        <div class="purchaseContent">
+          <div class="price">{{ sellListing.price }}</div>
+          <button href="/purchase_listing">Purchase</button>
+        </div>
+        <div class="discription">{{ sellListing.discription }}</div>
+      </div>
+    @endeach
+  </div>
+@endsection

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+
+  <script src="https://kit.fontawesome.com/7afd67fc69.js" crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+  <title>Twisted Trees by Joshua Lebaron</title>
+
+  {{ style('main') }}
+  @!section('extracss')
+</head>
+<body>
+  <div class="directory">
+    <div class="logo_wrapper">
+      <a href="/">Logo</a>
+    </div>
+    <div class="header">
+      <h1 class="the_title">Twisted Trees by Joshua Lebaron</h1>
+      <div class="menu">
+        @loggedIn
+          <a class="for_sale_btn" href="/">For Sale</a>
+          <a class="best_works_btn" href="/best_works">Best Works</a>
+          <a class="open_projects_btn" href="/open_projects">Open Projects</a>
+          <a class="about_the_artist_btn" href="/about_the_artist">About The Artist</a>
+          <a class="the_receipt_btn" href="/the_receipts">The Receipts</a>
+        @else
+          <a class="for_sale_btn" href="/">For Sale</a>
+          <a class="best_works_btn" href="/best_works">Best Works</a>
+          <a class="open_projects_btn" href="/open_projects">Open Projects</a>
+          <a class="about_the_artist_btn" href="/about_the_artist">About The Artist</a>
+        @endloggedIn
+      </div>
+    </div>
+  </div>
+  <div class="content">
+    @!section('content')
+  </div> 
+</body>
+</html>

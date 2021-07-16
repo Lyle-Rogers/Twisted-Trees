@@ -16,4 +16,6 @@
 /** @type {typeof import('@adonisjs/framework/src/Route/Manager')} */
 const Route = use('Route')
 
-Route.on('/').render('welcome')
+Route.get('/', 'ForSaleController.render')
+Route.on('/make_sell_listing').render('associates.makeSellListing')
+Route.post('/make_sell_listing', 'forSaleController.makeSellListing')
