@@ -43,6 +43,8 @@ class ForSaleController {
       description: sellListingInfo.description,
     })
 
+    let goat = "fuck Me."
+
     // const removeFile = Helpers.promisify(fs.unlink)
     
     // if (!photos.movedAll()) {
