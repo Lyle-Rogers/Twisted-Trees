@@ -1,7 +1,7 @@
 @layout('main')
 
 @section('extracss')
-  {{ style('pages/register') }}
+  {{ style('directory/for_sale') }}
 @endsection
 
 @section('content')
@@ -12,17 +12,20 @@
     @each(sellListing in sellListings)
       <div class="sellListing">
         <div class="photoDisplay">
-          {{--  <img src="{{ assetsUrl('uploads/' + sellListing.photo) }}" alt="The img" />  --}}
           <img src="{{ assetsUrl('uploads/' + sellListing.photo) }}" alt="The img" />
         </div>
-        <div class="title">
-          {{ sellListing.title }}
+        <div class="sellListingBottom">
+          <div class="title">
+            {{ sellListing.title }}
+          </div>
+          <div class="purchaseContent">
+            <div class="price">${{ sellListing.price }}</div>
+            <button href="/purchase_listing">Purchase</button>
+          </div>
+          <div class="description">
+            {{ sellListing.description }}
+          </div>
         </div>
-        <div class="purchaseContent">
-          <div class="price">{{ sellListing.price }}</div>
-          <button href="/purchase_listing">Purchase</button>
-        </div>
-        <div class="discription">{{ sellListing.discription }}</div>
       </div>
     @endeach
   </div>

@@ -3,16 +3,27 @@ html, body {
   width: 100%;
 }
 
+* {
+  margin: 0;
+  padding: 0;
+}
+
+*::-webkit-scrollbar {
+  width: 0px;
+}
+
 .directory {
   display: flex;
   width: 100vw;
-  height: 9em;
+  height: 13em;
   background-color: rgb(168, 52, 9);
   align-items: center;
   justify-content: center;
 }
 
 .logo_wrapper a img {
-  height: 30%;
-  width: 30%;
+  height: 10em;
+  width: 10em;
+  border-radius: 5em;
+  /* object-fit: contain; */
 }
