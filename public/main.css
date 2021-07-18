@@ -15,15 +15,49 @@ html, body {
 .directory {
   display: flex;
   width: 100vw;
+  position: relative;
   height: 13em;
-  background-color: rgb(168, 52, 9);
+  background-color: seagreen;
   align-items: center;
   justify-content: center;
 }
 
-.logo_wrapper a img {
-  height: 10em;
-  width: 10em;
-  border-radius: 5em;
-  /* object-fit: contain; */
+.logoWrapper a img {
+  position: absolute;
+  height: 9em;
+  width: 9em;
+  border-radius: 4.5em;
+  left: 0;
+  top: 0;
+  margin-left: 11px;
+  margin-top: .7em;
+}
+
+.titleContent {
+  display: flex;
+  justify-content: center;
+}
+
+.theTitle {
+  font-size: 60px;
+  font-family: 'Engagement', cursive;
+}
+
+.menu {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.directoryBtn {
+  outline: none;
+  text-decoration: none;
+  cursor: pointer;
+  color: white;
+  background-color: black;
+  padding: 6px;
+  font-size: 30px;
+  margin-left: 3px;
+  margin-right: 3px;
 }

@@ -7,7 +7,7 @@
 @section('content')
   <div class="forSaleContent">
     @if(admin == true)
-      <a href="/make_sell_listing">+</a>
+      <a class="addListingBtn" href="/make_sell_listing">+</a>
     @endif
     @each(sellListing in sellListings)
       <div class="sellListing">

@@ -5,6 +5,8 @@
 
   <script src="https://kit.fontawesome.com/7afd67fc69.js" crossorigin="anonymous"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  
+  <link href="https://fonts.googleapis.com/css2?family=Engagement&display=swap" rel="stylesheet">
 
   <title>Twisted Trees by Joshua Lebaron</title>
 
@@ -13,23 +15,25 @@
 </head>
 <body>
   <div class="directory">
-    <div class="logo_wrapper">
+    <div class="logoWrapper">
       <a href="/"><img src="IMG-20210715-WA0006.jpg" /></a>
     </div>
     <div class="header">
-      <h1 class="the_title">Twisted Trees by Joshua Lebaron</h1>
+      <div class="titleContent">
+        <h1 class="theTitle">Twisted Trees by Joshua Lebaron</h1>
+      </div>
       <div class="menu">
         @loggedIn
-          <a class="for_sale_btn" href="/">For Sale</a>
-          <a class="best_works_btn" href="/best_works">Best Works</a>
-          <a class="open_projects_btn" href="/open_projects">Open Projects</a>
-          <a class="about_the_artist_btn" href="/about_the_artist">About The Artist</a>
-          <a class="the_receipt_btn" href="/the_receipts">The Receipts</a>
+          <a class="directoryBtn" href="/">For Sale</a>
+          <a class="directoryBtn" href="/best_works">Best Works</a>
+          <a class="directoryBtn" href="/open_projects">Open Projects</a>
+          <a class="directoryBtn" href="/about_the_artist">About The Artist</a>
+          <a class="directoryBtn" href="/the_receipts">The Receipts</a>
         @else
-          <a class="for_sale_btn" href="/">For Sale</a>
-          <a class="best_works_btn" href="/best_works">Best Works</a>
-          <a class="open_projects_btn" href="/open_projects">Open Projects</a>
-          <a class="about_the_artist_btn" href="/about_the_artist">About The Artist</a>
+          <a class="directoryBtn" href="/">For Sale</a>
+          <a class="directoryBtn" href="/best_works">Best Works</a>
+          <a class="directoryBtn" href="/open_projects">Open Projects</a>
+          <a class="directoryBtn" href="/about_the_artist">About The Artist</a>
         @endloggedIn
       </div>
     </div>
