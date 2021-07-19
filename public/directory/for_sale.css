@@ -9,10 +9,9 @@
   position: absolute;
   right: 0;
   top: 0;
-  margin-top: -1.8em;
+  margin-top: -1.9em;
   margin-right: .6em;
-  font-size: 90px;
-  font-weight: bolder;
+  font-size: 70px;
   color: black;
 }
 
@@ -48,7 +47,7 @@
 
 .title {
   font-size: 60px;
-  
+  font-family: 'Nunito', sans-serif;
 }
 
 .purchaseContent {
@@ -58,7 +57,7 @@
   height: 10vw;
   align-items: center;
   justify-content: space-around;
-  margin-bottom: 60px;
+  margin-bottom: 11px;
 }
 
 .price {
@@ -67,10 +66,11 @@
 }
 
 .purchaseContent button {
+  border-radius: 9px;
   font-size: 39px;
   width: 6em;
   height: 1.9em;
-  background-color: rgb(0, 116, 212);
+  background-color: seagreen;
   font-weight: bold;
   text-decoration: none;
 }
