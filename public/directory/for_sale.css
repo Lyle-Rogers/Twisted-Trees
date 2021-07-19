@@ -8,11 +8,12 @@
   text-decoration: none;
   position: absolute;
   right: 0;
-  top: 6;
-  margin-right: 1em;
+  top: 0;
+  margin-top: -1.8em;
+  margin-right: .6em;
   font-size: 90px;
-  font-weight: bold;
-  color: seagreen;
+  font-weight: bolder;
+  color: black;
 }
 
 .sellListing {
@@ -25,7 +26,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgba(0, 0, 0, 0.541);
+  background-color: black;
   width: 100vw;
   height: 43vh;
 }
@@ -41,7 +42,7 @@
   flex-direction: column;
   width: 100vw;
   height: 30em;
-  background-color: gray;
+  background-color: rgb(88, 82, 82);
   align-items: center;
 }
 
