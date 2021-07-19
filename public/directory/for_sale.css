@@ -25,6 +25,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
   background-color: black;
   width: 100vw;
   height: 43vh;
@@ -36,10 +37,25 @@
   object-fit: contain;
 }
 
+.photoBtn {
+  position: absolute;
+  border-radius: 9px;
+  font-size: 31px;
+  padding: 3px 11px 3px 11px;
+  font-family: 'Hind', sans-serif;
+  background-color: black;
+  bottom: 0;
+  margin-bottom: 13px;
+  text-decoration: none;
+  cursor: pointer;
+  color: white;
+}
+
 .sellListingBottom {
   display: flex;
   flex-direction: column;
   width: 100vw;
+  position: relative;
   height: 30em;
   background-color: rgb(88, 82, 82);
   align-items: center;
@@ -48,6 +64,30 @@
 .title {
   font-size: 60px;
   font-family: 'Nunito', sans-serif;
+}
+
+.edit {
+  color: black;
+  font-size: 41px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin-top: 23px;
+  margin-right: 111px;
+  text-decoration: none;
+  outline: none;
+}
+
+.trash {
+  color: black;
+  font-size: 41px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin-top: 23px;
+  margin-right: 11px;
+  text-decoration: none;
+  outline: none;
 }
 
 .purchaseContent {
@@ -62,23 +102,25 @@
 
 .price {
   font-size: 49px;
-
 }
 
-.purchaseContent button {
+.purchaseContent a {
   border-radius: 9px;
   font-size: 39px;
-  width: 6em;
-  height: 1.9em;
+  padding: 6px 11px 6px 11px;
+  font-family: 'Hind', sans-serif;
   background-color: seagreen;
   font-weight: bold;
   text-decoration: none;
+  cursor: pointer;
+  color: black;
 }
 
 .description {
-  font-size: 36px;
+  font-size: 33px;
   width: 100vw;
   height: 100%;
+  font-family: 'Merriweather', serif;
   text-align: center;
   overflow-y: scroll;
 }

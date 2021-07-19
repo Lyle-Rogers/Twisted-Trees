@@ -13,14 +13,19 @@
       <div class="sellListing">
         <div class="photoDisplay">
           <img src="{{ assetsUrl('uploads/' + sellListing.photo) }}" alt="The img" />
+          <a class="photoBtn">See The Photo</a>
         </div>
         <div class="sellListingBottom">
           <div class="title">
             {{ sellListing.title }}
           </div>
+          @if(admin == true)
+            <a href="{{ route('ForSaleController.editSellListing', { id: sellListing.id }) }}" class="edit"><i class="fas fa-pen"></i></a>
+            <a class="trash"><i class="fas fa-trash"></i></a>
+          @endif
           <div class="purchaseContent">
             <div class="price">${{ sellListing.price }}</div>
-            <button href="/purchase_listing">Purchase</button>
+            <a href="/purchase_listing">Purchase</a>
           </div>
           <div class="description">
             {{ sellListing.description }}

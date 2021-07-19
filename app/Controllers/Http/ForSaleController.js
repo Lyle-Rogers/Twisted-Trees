@@ -75,6 +75,17 @@ class ForSaleController {
 
     return response.redirect('/')
   }
+
+  async editSellListing({ view, params }) {
+    const sellListing = await SellListing.find(params.id)
+    const photos = await Image
+      .query()
+      .where('sell_listing_id', params.id)
+      .orderBy('id', 'asc')
+      .fetch()
+
+    return view.render('associates.editSellListing', { sellListing, photos: photos.toJSON() })
+  }
 }
 
 module.exports = ForSaleController
