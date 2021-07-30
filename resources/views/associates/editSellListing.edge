@@ -7,41 +7,43 @@
 @section('content')
   <div class="editSellListing">
     <form 
-      action="{{ route('ForSaleController.updateSellListing') }}" 
+      action="{{ route('ForSaleController.updateSellListing', { id: sellListing.id }) }}" 
       method="POST"
       class="editSellListingForm"
     >
       {{ csrfField() }}
 
-      <h1>Edit the tree</h1>
+      <h1 class="editSellListingTitle">Edit the tree</h1>
       <div class="titlePrice">
         <div class="titleContent">
           <label for="title">Title</label>
-          <input type="text" name="title" />
+          <input value="{{ sellListing.title }}" type="text" name="title" />
         </div>
         <div class="priceContent">
           <label for="price">Price</label>
-          <input type="number" name="price" />
+          <input value="{{ sellListing.price }}" type="number" name="price" />
         </div>
       </div>
       <label class="descriptionTitle" for="description">Description</label>
-      <textarea class="description" type="text" name="description"></textarea>
+      <textarea class="description" type="text" name="description">{{ sellListing.description }}</textarea>
       <button class="sellListingSubmtBtn" type="submit">Edit sell listing</button>
     </form>
     <div class="editPhotosContent">
-      @foreach(photo in photos)
+      @each(photo in photos)
         <div class="photoContent">
-          <div class="deleteBtn"><i class="fa fa-trash"></i></div>
+          <div class="deleteBtn" onclick="{{ route('ForSaleController.deleteThePhoto', { id: photo.id, photo: photo.name }) }}"><i class="fa fa-trash"></i></div>
           <img src="{{ assetsUrl('uploads/' + photo.image) }}" alt="The img" />
         </div>
-      @endforeach
+      @endeach
     </div>
     <form 
-      action="{{ route('ForSaleController.createSellListingPhoto') }}" 
+      action="{{ route('ForSaleController.createSellListingPhoto', { id: sellListing.id }) }}" 
       method="POST"
       class="addPhotoContent"
       enctype="multipart/form-data" 
     >
+      {{ csrfField() }}
+
       <input type="file" name="photo" />
       <button type="submit">Create the photo</button>
     </form>

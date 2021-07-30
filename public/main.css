@@ -22,7 +22,10 @@ html, body {
   justify-content: center;
 }
 
-.logoWrapper a img {
+.logoWrapper a {
+  background-image: url("IMG-20210715-WA0006.jpg");
+  background-position: center;
+  background-size: cover;
   position: absolute;
   height: 7.1em;
   width: 7.1em;
@@ -33,14 +36,10 @@ html, body {
   margin-top: .7em;
 }
 
-.titleContent {
-  display: flex;
-  justify-content: center;
-}
-
 .theTitle {
   font-size: 60px;
   font-family: 'Engagement', cursive;
+  margin-left: 69px;
 }
 
 .menu {

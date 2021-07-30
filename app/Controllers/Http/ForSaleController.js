@@ -86,6 +86,52 @@ class ForSaleController {
 
     return view.render('associates.editSellListing', { sellListing, photos: photos.toJSON() })
   }
+
+  async updateSellListing({ response, params, request }) {
+    const sellListing = await SellListing.find(params.id);
+    const sellListingData = request.all();
+
+    sellListing.title = sellListingData.title;
+    sellListing.price = sellListingData.price;
+    sellListing.description = sellListingData.description;
+    
+    await sellListing.save();
+
+    return response.redirect('/')
+  }
+
+  async createSellListingPhoto({ response, params, request }) {
+    const sellListing = await SellListing.find(params.id);
+
+    const photo = request.file('photo', {
+      type: ['image'],
+      size: '13mb'
+    })
+
+    if (photo) {
+      const name = `${new Date().getTime()}.${photo.subtype}`;
+
+      await photo.move(Helpers.publicPath('uploads'), {
+        name: name,
+        overwrite: true
+      })
+
+      if (!photo.moved()) {
+        return response.redirect('/the_china')
+      }
+
+      await sellListing.photos().create({
+        image: name,
+      })
+    }
+
+    return response.redirect(`/edit_sell_listing/${params.id}`)
+  }
+
+  async deleteThePhoto({ response, params }) {
+    const thePhoto = await Image.find(params.id);
+    
+  }
 }
 
 module.exports = ForSaleController

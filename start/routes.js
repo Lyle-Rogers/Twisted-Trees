@@ -17,6 +17,11 @@
 const Route = use('Route')
 
 Route.get('/', 'ForSaleController.render')
+
 Route.on('/make_sell_listing').render('associates.makeSellListing')
 Route.post('/make_sell_listing', 'ForSaleController.makeSellListing')
+
 Route.get('/edit_sell_listing/:id', 'ForSaleController.editSellListing')
+Route.post('/post_sell_listing/:id', 'ForSaleController.updateSellListing')
+Route.post('create_sell_listing_photo/:id', 'ForSaleController.createSellListingPhoto')
+Route.get('delete_sell_listing_photo/:id/:photo', 'ForSaleController.deleteThePhoto')
