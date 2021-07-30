@@ -31,7 +31,7 @@
     <div class="editPhotosContent">
       @each(photo in photos)
         <div class="photoContent">
-          <div class="deleteBtn" onclick="{{ route('ForSaleController.deleteThePhoto', { id: photo.id, photo: photo.name }) }}"><i class="fa fa-trash"></i></div>
+          <a class="deleteBtn" href="{{ route('ForSaleController.deleteThePhoto', { id: photo.id, photo: photo.image }) }}"><i class="fa fa-trash"></i></a>
           <img src="{{ assetsUrl('uploads/' + photo.image) }}" alt="The img" />
         </div>
       @endeach
