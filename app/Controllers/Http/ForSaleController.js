@@ -76,6 +76,16 @@ class ForSaleController {
     return response.redirect('/')
   }
 
+  async seeThePhoto({ params, view }) {
+    const thePhotos = await Image
+      .query()
+      .where('sell_listing_id', params.id)
+      .orderBy('sell_listing_id', 'desc')
+      .fetch()
+
+    return view.render('associates.seeThePhoto', { thePhotos: thePhotos.toJSON() })
+  }
+
   async editSellListing({ view, params }) {
     const sellListing = await SellListing.find(params.id)
     const photos = await Image
@@ -130,7 +140,7 @@ class ForSaleController {
 
   async deleteThePhoto({ response, params }) {
     const thePhoto = await Image.find(params.id);
-    
+
   }
 }
 

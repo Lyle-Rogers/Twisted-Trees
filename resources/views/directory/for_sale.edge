@@ -13,7 +13,7 @@
       <div class="sellListing">
         <div class="photoDisplay">
           <img src="{{ assetsUrl('uploads/' + sellListing.photo) }}" alt="The img" />
-          <a class="photoBtn">See The Photo</a>
+          <a class="photoBtn" href="{{ route('ForSaleController.seeThePhoto', { id: sellListing.id }) }}">See The Photo</a>
         </div>
         <div class="sellListingBottom">
           <div class="title">

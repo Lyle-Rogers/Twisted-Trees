@@ -1,0 +1,13 @@
+@layout('main')
+
+@section('extracss')
+  {{ style('associates/editSellListing') }}
+@endsection
+
+@section('content')
+  <div class="seeThePhoto">
+    @each( photo in thePhotos )
+      <img src="{{ assetsUrl('uploads/' + photo.image) }}" />
+    @endeach
+  </div>
+@endsection
