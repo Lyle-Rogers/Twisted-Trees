@@ -23,6 +23,7 @@
   display: flex;
   flex-direction: row;
   margin-bottom: 11px;
+  margin-left: 21.6px;
 }
 
 .titleContent {
@@ -40,7 +41,8 @@
 .titleContent input {
   font-size: 39px;
   outline: none;
-  border: black solid 3px;
+  border: black solid 6px;
+  width: 93%;
   background-color: rgb(88, 82, 82)
 }
 
@@ -48,7 +50,6 @@
   display: flex;
   align-items: flex-start;
   flex-direction: column;
-  margin-left: 11px;
 }
 
 .priceContent label {
@@ -60,7 +61,8 @@
 .priceContent input {
   font-size: 39px;
   outline: none;
-  border: black solid 3px;
+  width: 93%;
+  border: black solid 6px;
   background-color: rgb(88, 82, 82)
 }
 
@@ -72,7 +74,7 @@
 
 .description {
   font-size: 13.9px;
-  border: black solid 3px;
+  border: black solid 6px;
   outline: none;
   text-align: center;
   width: 96%;

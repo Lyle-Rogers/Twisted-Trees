@@ -1,4 +1,6 @@
 .forSaleContent {
+  height: calc(100vh - 10.9em);
+  overflow-y: scroll;
   position: relative;
 }
 
