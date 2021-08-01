@@ -1,7 +1,6 @@
 'use strict'
 
 const Helpers = use('Helpers')
-// const fs = require('fs');
 const SellListing = use('App/Models/SellListing')
 const Image = use('App/Models/Image')
 
@@ -55,24 +54,6 @@ class ForSaleController {
       })
     }
 
-    // const sellListing = await SellListing.find(makeSellListing.id)
-    
-    // const createPhoto = await sellListing.photos().create({
-    //   image: name,
-    // })
-
-    // const removeFile = Helpers.promisify(fs.unlink)
-    
-    // if (!photos.movedAll()) {
-    //   const movedFiles = photos.movedList()
-
-    //   await Promise.all(movedFiles.map((file) => {
-    //     return removeFile(path.join(file._location, file.fileName))
-    //   }))
-
-    //   return response.redirect('/china_the')
-    // }
-
     return response.redirect('/')
   }
 
@@ -84,6 +65,32 @@ class ForSaleController {
       .fetch()
 
     return view.render('associates.seeThePhoto', { thePhotos: thePhotos.toJSON() })
+  }
+
+  async deleteSellListingClick({ params, auth, view }) {
+    const sellListingBeingDeleted = params.id;
+     // const admin = auth.user ? true : false;
+    const admin = true;
+
+    const sellListings = await SellListing
+      .query()
+      .orderBy('id', 'desc')
+      .fetch()
+
+    return view.render('directory/for_sale', { admin, sellListingBeingDeleted, sellListings: sellListings.toJSON() })
+  }
+
+  async deleteSellListing({ response, params }) {
+    const sellListing = await SellListing.find(params.id);
+    
+    await Image
+      .query()
+      .where('sell_listing_id', params.id)
+      .delete()
+
+    sellListing.delete()
+
+    return response.redirect('/')
   }
 
   async editSellListing({ view, params }) {
@@ -127,20 +134,49 @@ class ForSaleController {
       })
 
       if (!photo.moved()) {
-        return response.redirect('/the_china')
+        return response.redirect('/photo_not_uploaded')
       }
 
       await sellListing.photos().create({
         image: name,
       })
+
+      sellListing.new_photo = name;
+
+      await sellListing.save()
     }
 
     return response.redirect(`/edit_sell_listing/${params.id}`)
   }
 
+  async photoDeleteClick({ view, params }) {
+    const sellListing = await SellListing.find(params.id)
+    const photoBeingDeleted = params.photo;
+    const photos = await Image
+      .query()
+      .where('sell_listing_id', params.id)
+      .orderBy('id', 'asc')
+      .fetch()
+
+    return view.render('associates.editSellListing', { photoBeingDeleted, sellListing, photos: photos.toJSON() })
+  }
+
   async deleteThePhoto({ response, params }) {
     const thePhoto = await Image.find(params.id);
+    const sellListing = await SellListing.find(thePhoto.sell_listing_id);
+    const fs = Helpers.promisify(require('fs'))
+    const photoDir = thePhoto.image;
 
+    if (sellListing.photo == photoDir) {
+      sellListing.photo = sellListing.new_photo;
+      await sellListing.save()
+    }
+
+    await thePhoto.delete()
+
+    await fs.unlink(Helpers.publicPath(`/uploads/${photoDir}`))
+
+    return response.redirect('back')
   }
 }
 

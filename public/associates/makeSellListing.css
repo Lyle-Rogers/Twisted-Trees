@@ -1,0 +1,104 @@
+.makeSellListingContent {
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(88, 82, 82);
+  height: calc(100vh - 10.9em);
+  align-items: center;
+  width: 100vw;
+}
+
+.makeSellListingTitle {
+  font-family: 'Hind', sans-serif;
+  font-size: 39px;
+}
+
+.titlePrice {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 11px;
+  margin-left: 21.6px;
+}
+
+.titleContent {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.titleContent label {
+  font-size: 36px;
+  font-family: 'Nunito', sans-serif;
+  font-weight: bold;
+}
+
+.titleContent input {
+  font-size: 39px;
+  outline: none;
+  border: black solid 6px;
+  width: 93%;
+  background-color: rgb(88, 82, 82)
+}
+
+.priceContent {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+.priceContent label {
+  font-size: 36px;
+  font-family: 'Nunito', sans-serif;
+  font-weight: bold;
+}
+
+.priceContent input {
+  font-size: 39px;
+  outline: none;
+  width: 93%;
+  border: black solid 6px;
+  background-color: rgb(88, 82, 82)
+}
+
+.descriptionTitle {
+  font-size: 36px;
+  font-family: 'Nunito', sans-serif;
+  font-weight: bold;
+}
+
+.description {
+  font-size: 31px;
+  border: black solid 6px;
+  outline: none;
+  text-align: center;
+  width: 96%;
+  height: 16em;
+  font-weight: bold;
+  font-family: 'Merriweather', serif;
+  background-color: rgb(88, 82, 82)
+}
+
+.photoBtn {
+  font-size: 31px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  background-color: black;
+  border-radius: 9px;
+  padding: 3px 0px 3px 0px;
+  font-family: 'Hind', sans-serif;
+  text-decoration: none;
+  cursor: pointer;
+  color: white;
+}
+
+.createBtn {
+  border-radius: 9px;
+  font-size: 39px;
+  padding: 6px 11px 6px 11px;
+  font-family: 'Hind', sans-serif;
+  background-color: seagreen;
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+  color: black;
+  margin-bottom: .2em;
+}

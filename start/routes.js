@@ -23,8 +23,10 @@ Route.post('/make_sell_listing', 'ForSaleController.makeSellListing')
 
 Route.get('/edit_sell_listing/:id', 'ForSaleController.editSellListing')
 Route.post('/post_sell_listing/:id', 'ForSaleController.updateSellListing')
-Route.get('/sell_listing_photos/:id', 'ForSaleController.seeThePhoto')
-Route.get('see_sell_listing_photos/:id', 'ForSaleController.seeThePhoto')
+Route.get('/delete_sell_listing_click/:id', 'ForSaleController.deleteSellListingClick')
+Route.get('/delete_sell_listing/:id', 'ForSaleController.deleteSellListing')
+Route.get('/see_sell_listing_photos/:id', 'ForSaleController.seeThePhoto')
 Route.post('create_sell_listing_photo/:id', 'ForSaleController.createSellListingPhoto')
-Route.get('delete_sell_listing_photo/:id/:photo', 'ForSaleController.deleteThePhoto')
+Route.get('/delete_sell_listing_photo_click/:id/:photo', 'ForSaleController.photoDeleteClick')
+Route.get('/delete_sell_listing_photo/:id', 'ForSaleController.deleteThePhoto')
 
