@@ -1,3 +1,9 @@
+@media (min-width: 1281px) {
+  .makeSellListingContent {
+    height: calc(100% - 10.9em) !important;
+  }
+}
+
 .makeSellListingContent {
   display: flex;
   flex-direction: column;

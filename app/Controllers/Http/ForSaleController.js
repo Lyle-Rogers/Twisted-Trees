@@ -17,6 +17,10 @@ class ForSaleController {
     return view.render('directory/for_sale', { admin, sellListings: sellListings.toJSON() })
   }
 
+  async aboutTheArtist({ view }) {
+    return view.render('directory/aboutTheArtist')
+  }
+
   async makeSellListing({ request, response }) {
     const sellListingInfo = request.all(); 
     const photo = request.file('photo', {
