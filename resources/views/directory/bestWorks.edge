@@ -33,30 +33,30 @@
         </div>
       </div>
       @if(bestWorkListingBeingDeleted == bestWorkListing.id)
-        <div id="{{ bestWorkListing.id }}" class="modal"> 
-          <div class="modal_container">
-            <span class="close">&times;</span>
-            <div class="modal_text_container">
-              <p class="modal_text">Delete the photos to the best work listing befor procedding. Will you delete the best work listing: {{ bestWorkListing.title }}.</p>
-            </div>
-            <a class="delete_sell_listing_btn" href="{{ route('BestWorkController.deleteBestWorkListing', { id: bestWorkListing.id }) }}">DELETE BEST WORK</a>
+      <div id="{{ bestWorkListing.id }}" class="modal"> 
+        <div class="modal_container">
+          <span class="close">&times;</span>
+          <div class="modal_text_container">
+            <p class="modal_text">Delete the photos to the best work listing befor procedding. Will you delete the best work listing: {{ bestWorkListing.title }}.</p>
           </div>
+          <a class="delete_sell_listing_btn" href="{{ route('BestWorkController.deleteBestWorkListing', { id: bestWorkListing.id }) }}">DELETE BEST WORK</a>
         </div>
-        @endif
-        <script>
-          var modal = document.getElementById('{{ bestWorkListingBeingDeleted }}');
-          var span = document.getElementsByClassName('close')[0];
-        
-          span.onclick = function() {
+      </div>
+      @endif
+      <script>
+        var modal = document.getElementById('{{ bestWorkListingBeingDeleted }}');
+        var span = document.getElementsByClassName('close')[0];
+      
+        span.onclick = function() {
+          modal.style.display = 'none'
+        }
+      
+        window.onclick = function(event) {
+          if (event.target == modal) {
             modal.style.display = 'none'
           }
-        
-          window.onclick = function(event) {
-            if (event.target == modal) {
-              modal.style.display = 'none'
-            }
-          }
-        </script>
+        }
+      </script>
     @endeach
   </div>
 @endsection

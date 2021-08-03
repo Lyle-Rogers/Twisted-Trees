@@ -1,0 +1,76 @@
+@layout('main')
+
+@section('extracss')
+  {{ style('associates/editSellListing') }}
+@endsection
+
+@section('content')
+  <div class="editSellListing">
+    <form 
+      action="{{ route('OpenProjectController.updateOpenProjectListing', { id: openProjectListing.id }) }}" 
+      method="POST"
+      class="editSellListingForm"
+    >
+      {{ csrfField() }}
+
+      <h1 class="editSellListingTitle">Edit open project</h1>
+      <div class="titlePrice">
+        <div class="titleContent">
+          <label for="title">Title</label>
+          <input value="{{ openProjectListing.title }}" type="text" name="title" />
+        </div>
+        <div class="priceContent">
+          <label for="price">Price</label>
+          <input value="{{ openProjectListing.price }}" type="number" name="price" />
+        </div>
+      </div>
+      <label class="descriptionTitle" for="description">Description</label>
+      <textarea class="description" type="text" name="description">{{ openProjectListing.description }}</textarea>
+      <button class="sellListingSubmtBtn" type="submit">Edit open project</button>
+    </form>
+    <div class="editPhotosContent">
+      @each(photo in photos)
+        <div class="photoContent">
+          <a class="deleteBtn" href="{{ route('OpenProjectController.photoDeleteClick', { id: openProjectListing.id, photo: photo.id }) }}"><i class="fa fa-trash"></i></a>
+          <img src="{{ assetsUrl('uploads/' + photo.image) }}" alt="The img" />
+        </div>
+        @if(photoBeingDeleted == photo.id)
+        <div id="{{ photo.id }}" class="modal"> 
+          <div class="modal_container">
+            <span class="close">&times;</span>
+            <div class="modal_text_container">
+              <p class="modal_text">Don't delete the photo being displayed until after you've added a difrent photo that will replace it.</p>
+            </div>
+            <a class="delete_photo_btn" href="{{ route('OpenProjectController.deleteThePhoto', { id: photo.id }) }}">DELETE THE PHOTO</a>
+          </div>
+        </div>
+        @endif
+        <script>
+          var modal = document.getElementById('{{ photoBeingDeleted }}');
+          var span = document.getElementsByClassName('close')[0];
+        
+          span.onclick = function() {
+            modal.style.display = 'none'
+          }
+        
+          window.onclick = function(event) {
+            if (event.target == modal) {
+              modal.style.display = 'none'
+            }
+          }
+        </script>
+      @endeach
+    </div>
+    <form 
+      action="{{ route('OpenProjectController.createOpenProjectListingPhoto', { id: openProjectListing.id }) }}" 
+      method="POST"
+      class="addPhotoContent"
+      enctype="multipart/form-data" 
+    >
+      {{ csrfField() }}
+
+      <input type="file" name="photo" />
+      <button type="submit">Create the photo</button>
+    </form>
+  </div>
+@endsection

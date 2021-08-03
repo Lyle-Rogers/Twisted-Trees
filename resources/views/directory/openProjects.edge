@@ -1,0 +1,62 @@
+@layout('main')
+
+@section('extracss')
+  {{ style('directory/for_sale') }}
+@endsection
+
+@section('content')
+  <div class="forSaleContent">
+    @if(admin == true)
+      <a class="addListingBtn" href="/make_open_project_listing"><i class="fas fa-plus"></i></a>
+    @endif
+    @each(openProjectListing in openProjectListings)
+      <div class="sellListing">
+        <div class="photoDisplay">
+          <img src="{{ assetsUrl('uploads/' + openProjectListing.photo) }}" alt="The img" />
+          <a class="photoBtn" href="{{ route('OpenProjectController.seeThePhoto', { id: openProjectListing.id }) }}">See The Photo</a>
+        </div>
+        <div class="sellListingBottom">
+          <div class="title">
+            {{ openProjectListing.title }}
+          </div>
+          @if(admin == true)
+            <a href="{{ route('OpenProjectController.editOpenProjectListing', { id: openProjectListing.id }) }}" class="edit"><i class="fas fa-pen"></i></a>
+            <a href="{{ route('OpenProjectController.deleteOpenProjectListingClick', { id: openProjectListing.id }) }}" class="trash"><i class="fas fa-trash"></i></a>
+          @endif
+          <div class="purchaseContent">
+            <div class="price">${{ openProjectListing.price }}</div>
+            <a href="/about_the_artist">Finish It</a>
+          </div>
+          <div class="description">
+            {{ openProjectListing.description }}
+          </div>
+        </div>
+      </div>
+      @if(openProjectListingBeingDeleted == openProjectListing.id)
+      <div id="{{ openProjectListing.id }}" class="modal"> 
+        <div class="modal_container">
+          <span class="close">&times;</span>
+          <div class="modal_text_container">
+            <p class="modal_text">Delete the photos to the open project listing befor procedding. Will you delete the open project listing: {{ openProjectListing.title }}.</p>
+          </div>
+          <a class="delete_sell_listing_btn" href="{{ route('OpenProjectController.deleteOpenProjectListing', { id: openProjectListing.id }) }}">DELETE OPEN PROJECT</a>
+        </div>
+      </div>
+      @endif
+      <script>
+        var modal = document.getElementById('{{ openProjectListingBeingDeleted }}');
+        var span = document.getElementsByClassName('close')[0];
+      
+        span.onclick = function() {
+          modal.style.display = 'none'
+        }
+      
+        window.onclick = function(event) {
+          if (event.target == modal) {
+            modal.style.display = 'none'
+          }
+        }
+      </script>
+    @endeach
+  </div>
+@endsection
