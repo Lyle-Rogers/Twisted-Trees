@@ -2,7 +2,9 @@
 
 const Helpers = use('Helpers')
 const SellListing = use('App/Models/SellListing')
+const Hash = use('Hash')
 const Image = use('App/Models/Image')
+const User = use('App/Models/User')
 
 class ForSaleController {
   async render({ view, auth }) {
@@ -15,6 +17,31 @@ class ForSaleController {
       .fetch()
 
     return view.render('directory/for_sale', { admin, sellListings: sellListings.toJSON() })
+  }
+
+  async signIn({ response, auth, request, session }) {
+    const { username, password } = request.all();
+    
+    const user = await User.query()
+      .where('username', username)
+      .first()
+
+    if (user) {
+      const verification = await Hash.verify(password, user.password)
+
+      if (verification) {
+        await auth.remember(true).login(user)
+
+        return response.route('/')
+      } else {
+        session.flash({ message: "Your password was incorrect. Please try again." })
+
+        return response.redirect('back')
+      }
+    }
+    session.flash({ message: "Couldn't find the username. Please see if it's correct." })
+
+    return response.redirect('back')
   }
 
   async aboutTheArtist({ view }) {

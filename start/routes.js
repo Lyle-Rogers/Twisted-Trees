@@ -18,6 +18,13 @@ const Route = use('Route')
 
 Route.get('/', 'ForSaleController.render')
 
+Route.on('/sign_in').render('directory.signIn')
+Route.post('/sign_splish_in', 'ForSaleController.signIn')
+Route.get('/sign_out', async ({ auth, response }) => {
+  await auth.logout();
+  return response.redirect('back');
+})
+
 Route.on('/make_sell_listing').render('associates.makeSellListing')
 Route.post('/make_sell_listing', 'ForSaleController.makeSellListing')
 Route.get('/edit_sell_listing/:id', 'ForSaleController.editSellListing')

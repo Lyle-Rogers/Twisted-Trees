@@ -40,6 +40,11 @@ html, body {
   font-size: 60px;
   font-family: 'Engagement', cursive;
   margin-left: 69px;
+  cursor: pointer;
+  outline: none;
+  text-decoration: none;
+  color: black;
+  font-weight: bolder;
 }
 
 .menu {

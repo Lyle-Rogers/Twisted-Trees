@@ -1,0 +1,98 @@
+.signOutBtnWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+.theSignOutBtn {
+  border: none;
+  outline: none;
+  text-decoration: none;
+  background: none;
+  color: white;
+  margin-top: 13px;
+  font-size: 20px;
+  padding: 5px 5px 5px 5px;
+  background-color: black;
+  border-radius: 10px 10px 10px 10px;
+}
+
+.sign_in_content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.notifications {
+  font-size: 23px;
+  padding: 15px;
+  margin-top: 5px;
+  margin-bottom: -25px;
+  background-color: grey;
+  max-width: 20em;
+  width: 20em;
+  text-align: center;
+  font-family: 'Rubik', sans-serif;
+}
+
+.input_errors {
+  font-size: 23px;
+  padding: 15px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  background-color: grey;
+  max-width: 20em;
+  width: 20em;
+  text-align: center;
+  font-family: 'Rubik', sans-serif;
+}
+
+.username {
+  border: none;
+  border-bottom: 3px solid black;
+  width: 20em;
+  outline: none;
+  text-align: center;
+  font-size: 23px;
+  margin-top: 3em;
+}
+
+.username::placeholder {
+  font-size: 26px;
+}
+
+.password {
+  border: none;
+  border-bottom: 3px solid black;
+  width: 20em;
+  outline: none;
+  text-align: center;
+  font-size: 23px;
+  margin-top: 1.5em;
+}
+
+.password::placeholder {
+  font-size: 26px;
+}
+
+.remember_me_container {
+  font-family: 'Oswald', sans-serif;
+  margin-top: 6px;
+  margin-right: 13.6em;
+  font-size: 23px;
+}
+
+.sign_in_btn {
+  font-family: 'Roboto Slab', serif;
+  border: none;
+  outline: none;
+  background: none;
+  color: white;
+  margin-top: 13px;
+  font-size: 20px;
+  padding: 5px 5px 5px 5px;
+  background-color: black;
+  border-radius: 10px 10px 10px 10px;
+}

@@ -1,0 +1,49 @@
+@layout('main')
+
+@section('extracss')
+  {{ style('directory/signIn') }}
+@endsection
+
+@section('content')
+  @loggedIn
+    <div class="signOutBtnWrapper">
+      <a href="sign_out" class="theSignOutBtn">Sign Out</a>
+    </div>
+  @else
+    <form class="sign_in_content" action="{{ route('ForSaleController.signIn') }}" method="POST">
+      {{ csrfField() }}
+
+      @if(flashMessage('message'))
+        <span class="notifications">{{ flashMessage('message')}}</span>
+      @endif
+
+      <input 
+        class="username" 
+        type="text" 
+        name="username" 
+        placeholder="Your Name"
+        value="{{ old('username', '') }}"
+      >
+      @if(hasErrorFor('username'))
+        <span class="input_errors">
+          {{ getErrorFor('username') }}
+        </span>
+      @endif
+
+      <input 
+        class="password" 
+        type="password" 
+        name="password"
+        placeholder="Password"
+        value="{{ old('password', '') }}"
+      >
+      @if(hasErrorFor('password'))
+        <span class="input_errors">
+          {{ getErrorFor('password') }}
+        </span>
+      @endif
+
+      <button class="sign_in_btn" type="submit">Sign In</button>
+    </form>
+  @endloggedIn
+@endsection
