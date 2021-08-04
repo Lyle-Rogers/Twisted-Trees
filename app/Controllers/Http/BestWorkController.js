@@ -6,8 +6,7 @@ const Image = use('App/Models/Image')
 
 class BestWorkController {
   async render({ view, auth }) {
-    // const admin = auth.user ? true : false;
-    const admin = true;
+    const admin = auth.user ? true : false;
 
     const bestWorkListings = await BestWork
       .query()
@@ -69,8 +68,7 @@ class BestWorkController {
 
   async deleteBestWorkListingClick({ params, auth, view }) {
     const bestWorkListingBeingDeleted = params.id;
-     // const admin = auth.user ? true : false;
-    const admin = true;
+    const admin = auth.user ? true : false;
 
     const bestWorkListings = await BestWork
       .query()

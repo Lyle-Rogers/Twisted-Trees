@@ -7,11 +7,13 @@
 @section('content')
   @loggedIn
     <div class="signOutBtnWrapper">
-      <a href="sign_out" class="theSignOutBtn">Sign Out</a>
+      <a href="sign_out" class="theSignOutBtn">Log Splish Out</a>
     </div>
   @else
     <form class="sign_in_content" action="{{ route('ForSaleController.signIn') }}" method="POST">
       {{ csrfField() }}
+
+      <h1 class="signSplishIn">Sign Splish In</h1>
 
       @if(flashMessage('message'))
         <span class="notifications">{{ flashMessage('message')}}</span>

@@ -1,28 +1,42 @@
+.signSplishIn {
+  font-size: 41px;
+  font-family: 'Source Code Pro', monospace;
+  font-weight: bolder;
+}
+
 .signOutBtnWrapper {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  background-color: rgb(88, 82, 82);
+  height: calc(100vh - 10.9em);
   width: 100vw;
-  height: 100vh;
 }
 
 .theSignOutBtn {
+  font-family: 'Roboto Slab', serif;
   border: none;
   outline: none;
-  text-decoration: none;
   background: none;
+  text-decoration: none;
   color: white;
-  margin-top: 13px;
-  font-size: 20px;
-  padding: 5px 5px 5px 5px;
+  margin-top: 1em;
+  font-size: 31px;
+  padding: 11px 11px 11px 11px;
   background-color: black;
   border-radius: 10px 10px 10px 10px;
+  margin-bottom: 33.1em;
 }
 
 .sign_in_content {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  background-color: rgb(88, 82, 82);
+  height: calc(100vh - 10.9em);
+  width: 100vw;
 }
 
 .notifications {
@@ -51,37 +65,34 @@
 
 .username {
   border: none;
-  border-bottom: 3px solid black;
+  border: 6px solid black;
   width: 20em;
   outline: none;
   text-align: center;
-  font-size: 23px;
-  margin-top: 3em;
+  background-color: rgb(88, 82, 82);
+  font-size: 33px;
+  margin-top: 1.1em;
 }
 
 .username::placeholder {
-  font-size: 26px;
+  font-size: 33px;
+  color: black;
 }
 
 .password {
   border: none;
-  border-bottom: 3px solid black;
+  border: 6px solid black;
   width: 20em;
   outline: none;
+  background-color: rgb(88, 82, 82);
   text-align: center;
-  font-size: 23px;
-  margin-top: 1.5em;
+  font-size: 33px;
+  margin-top: 1.1em;
 }
 
 .password::placeholder {
-  font-size: 26px;
-}
-
-.remember_me_container {
-  font-family: 'Oswald', sans-serif;
-  margin-top: 6px;
-  margin-right: 13.6em;
-  font-size: 23px;
+  font-size: 33px;
+  color: black;
 }
 
 .sign_in_btn {
@@ -90,9 +101,10 @@
   outline: none;
   background: none;
   color: white;
-  margin-top: 13px;
-  font-size: 20px;
-  padding: 5px 5px 5px 5px;
+  margin-top: 1em;
+  font-size: 31px;
+  padding: 11px 11px 11px 11px;
   background-color: black;
   border-radius: 10px 10px 10px 10px;
+  margin-bottom: 33.1em;
 }

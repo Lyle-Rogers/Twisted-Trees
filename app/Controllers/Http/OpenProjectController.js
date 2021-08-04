@@ -6,8 +6,7 @@ const Image = use('App/Models/Image')
 
 class OpenProjectController {
   async render({ view, auth }) {
-    // const admin = auth.user ? true : false;
-    const admin = true;
+    const admin = auth.user ? true : false;
 
     const openProjectListings = await OpenProject
       .query()
@@ -69,8 +68,7 @@ class OpenProjectController {
 
   async deleteOpenProjectListingClick({ params, auth, view }) {
     const openProjectListingBeingDeleted = params.id;
-     // const admin = auth.user ? true : false;
-    const admin = true;
+    const admin = auth.user ? true : false;
 
     const openProjectListings = await OpenProject
       .query()

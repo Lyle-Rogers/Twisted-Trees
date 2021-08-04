@@ -8,8 +8,7 @@ const User = use('App/Models/User')
 
 class ForSaleController {
   async render({ view, auth }) {
-    // const admin = auth.user ? true : false;
-    const admin = true;
+    const admin = auth.user ? true : false;
 
     const sellListings = await SellListing
       .query()
@@ -100,8 +99,7 @@ class ForSaleController {
 
   async deleteSellListingClick({ params, auth, view }) {
     const sellListingBeingDeleted = params.id;
-     // const admin = auth.user ? true : false;
-    const admin = true;
+    const admin = auth.user ? true : false;
 
     const sellListings = await SellListing
       .query()
